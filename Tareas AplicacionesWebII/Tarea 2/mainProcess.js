@@ -66,7 +66,7 @@ async function buscarParkingPorId(parkingId)
 (async ()=> {
     try {
         // se ejecutan las funciones desde arriba y da paso al parámetro que se necesita 
-        const car =  await buscarVehiculoPorPlaca('0002');
+        const car =  await buscarVehiculoPorPlaca('0009');
         const dataForPayment = await buscarDataForPaymentsPorPlaca(car.numPlaca);
         const user = await buscarUsarioVehiculoPorUserId(car.userId);
         const parking = await buscarParkingPorId(dataForPayment.parkingId);
