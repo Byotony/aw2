@@ -1,6 +1,7 @@
 {
-  "name": "clase-4",
+  "name": "prueba1",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^6.3.2"
-  },
-  "description": ""
+    "mongoose": "^6.3.3"
+  }
 }
