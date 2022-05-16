@@ -1,0 +1,29 @@
+{
+  "name": "aw2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodenmon index,js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Byotony/aw2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Byotony/aw2/issues"
+  },
+  "homepage": "https://github.com/Byotony/aw2#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express-validator": "^6.14.0",
+    "mongoose": "^6.3.3"
+  }
+}
