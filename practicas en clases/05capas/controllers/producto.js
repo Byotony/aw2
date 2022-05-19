@@ -66,7 +66,7 @@ const borrarProductos = async (req, res) =>{
 
 
 module.exports = {
-    obtenerProducto,
+    obtenerProductos,
     obtenerProducto,
     crearProductos,
     borrarProductos,

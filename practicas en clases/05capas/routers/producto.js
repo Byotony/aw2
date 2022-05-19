@@ -10,7 +10,7 @@ const {obtenerProductos,
        borrarProductos
 } = require('../controllers').Producto;
 
-const { ValidarCampos } = require ('../middlewares');
+const { validarCampos } = require ('../middlewares');
 
 const router = Router ();
 
@@ -25,16 +25,17 @@ router.get('/:id'
 
 
 router.post('/' , 
-[check('nombre', 'El nombre es obligatorio').not().isEmpty(),ValidarCampos]
+[check('nombre', 'El nombre es obligatorio').not().isEmpty(),validarCampos]
 , crearProductos)
 
+
 router.put('/:id' ,
-[check('id','El id no es válido').isMongoId()]
+[check('id','El id no es válido').isMongoId(),validarCampos]
 ,actualizarProductos)
 
 
 router.delete('/' 
-[check('id','El id no es válido').isMongoId()]
+[check('id','El id no es válido').isMongoId(),validarCampos]
 ,borrarProductos)
 
 module.exports = router;
