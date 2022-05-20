@@ -1,7 +1,12 @@
+// SE CREA LA CONSTANTE CON EL FRAMEWORK
+
 const {Router} = require('express');
+
+// SE CREA UNA CONSTANTE CON LA LIBRERÍA DE VALIDATOR
 
 const {check} = require('express-validator');
 
+// SE CREAN LOS PROCESOS.
 
 const {obtenerProductos,
        obtenerProducto,
@@ -13,6 +18,8 @@ const {obtenerProductos,
 const { validarCampos } = require ('../middlewares');
 
 const router = Router ();
+
+// SE LE DA LOS INDICACIONES A LOS PROCESOS CREADOS.
 
 router.get('/',obtenerProductos);//Obtener Productos
 router.get('/:id', [check('id', 'El id no es valido').isMongoId],obtenerProducto);//Obtener Producto
@@ -42,5 +49,7 @@ router.delete('/:id', [check('id', 'El id no es valido').isMongoId],borrarProduc
 // router.delete('/:id' 
 // [check('id','El id no es válido').isMongoId()]
 // ,borrarProductos);
+
+// SE EXPORATAN LOS MODULOS.
 
 module.exports = router;

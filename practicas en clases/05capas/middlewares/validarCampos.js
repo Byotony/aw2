@@ -1,3 +1,5 @@
+// SE GENERA UNA CONSTANTE PARA PODER DESESTRUCTURARLA, LA CUAL NOS SERVIRÁ PARA VALIDAR LOS DATOS.
+
 const { validationResult} = require ('express-validator');
 
 const validarCampos = (req, res, next )=>{
@@ -10,6 +12,7 @@ const validarCampos = (req, res, next )=>{
     next();
 }
 
+// SE EXPORTAN LOS MÓDULOS.
 
 module.exports = {
     validarCampos,

@@ -1,5 +1,10 @@
+// SE DECLARAN LAS CONSTANTES CON EL FRAMEWORK
+// SE DECLARA LA CONSTANTE PARA TENER ACCESO A LOS MODELOS.
+
 const {response} = require('express')
 const {Producto} = require ('../models')
+
+// SE DECLARA UNA CONSTANTE PARA OBTENER LOS DATOS DE MANERA ASINCRÓNICA, EN LA CUAL ESTARÁN DENTRO MÁS ATRIBUTOS DECLARADOS.
 
 const   obtenerProductos = async (req, res = response) =>{
 
@@ -19,6 +24,8 @@ const   obtenerProductos = async (req, res = response) =>{
 
 }
 
+// SE DECLARA UNA CONSTANTE PARA OBTENER LOS DATOS POR LA ID DEL PRODUCTO
+
 const obtenerProducto = async (req, res = response) =>{
 
     const {id} = req.params
@@ -26,6 +33,8 @@ const obtenerProducto = async (req, res = response) =>{
     res.json(producto);
 
 }
+
+// CREACION DE PRODUCTO, LOS DATOS SON OBLIGATORIOS, EN CASO DE HABER PRODUCTOS REPETIVOS SALTARÁ UN ERROR.
 
 const crearProductos = async (req, res) =>{
 
@@ -46,6 +55,8 @@ const crearProductos = async (req, res) =>{
 
 }
 
+// SE DECLARA UNA VARIABLE LA CUAL ESTARÁ ENCARGADA DE OBTENER LOS PARÁMETROS DE UN PRODUCTO Y ASÍ PODER ACTUALIZARLOS.
+
 const actualizarProductos = async (req, res) =>{
 
     const {id} = await req.params;
@@ -55,6 +66,9 @@ const actualizarProductos = async (req, res) =>{
     
 }
 
+// ESTA CONTANTE NO BORRA EL PRODUCTO COMO TAL, SOLO LE CAMBIA EL ESTADO A OCULTO, Y COMO EN LA PARTE DE MOSTRAR TENEMOS UN FILTRO DE ESTADO:TRUE
+// TODOS LOS QUE ESTÉN OCULTOS NO SERÁN MOSTRADOS.
+
 const borrarProductos = async (req, res) =>{
 
     const {id} = await req.params
@@ -63,6 +77,7 @@ const borrarProductos = async (req, res) =>{
 
 }
 
+// SE EXPORTAN LOS MÓDULOS.
 
 module.exports = {
     obtenerProductos,

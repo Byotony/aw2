@@ -1,4 +1,8 @@
+// ESQUEMAS Y MODULOS.
+
 const { Schema, model} = require('mongoose')
+
+// SE CREAN LOS PRODUCTOS, CON LOS RESPECTIVOS ESTADOS.
 
 const ProductoSchema = Schema ({
     nombre: {
@@ -30,5 +34,7 @@ const ProductoSchema = Schema ({
     },
 
 })
+
+// SE EXPORTAN LOS MÓDULOS.
 
 module.exports = model ('Producto', ProductoSchema);

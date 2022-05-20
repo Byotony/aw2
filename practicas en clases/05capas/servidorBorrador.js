@@ -1,8 +1,8 @@
 const express = require ('express');
 const cors = require ('cors');
-const { dbConnection } = require('./database/config');
+const { dbConnection } = require('./database/config'); // SE IMPORTA LA CONF DE LA BASE DE DATOS.
 
-class Server {
+class Server { // SE GENERA UNA CLASE CON LAS RUTAS.
     constructor(){
         this.app = express.Router();
         this.router = express.Router();
@@ -11,14 +11,14 @@ class Server {
             productos: '/api/productos',
             clientes: '/api/clientes',
         }
-        this.conectarDB();
+        this.conectarDB(); 
         this.middlewares();
         this.routers();
         this.router.use('/v1/SextoA', this.app);
         this._express = express().use(this.router);
         
     }
-    async conectarDB(){
+    async conectarDB(){ // MÉTODO PARA CONECTARSE A LA BASE DE DATOS.
         await dbConnection();
     };
     middlewares(){
@@ -30,10 +30,12 @@ class Server {
     };
     listen(){
         this._express.listen(this.port, ()=>{
-            console.log (`Servidor corriendo en puerto ${this.port}`);
+            console.log (`Servidor corriendo en puerto ${this.port}`); // SERVIDOR CORRIENDO UN PUERTO ESPECÍFICO.
         })
     };
 }
+
+// SE EXPORTAN LOS MÓDULOS.
 
 module.exports = Server;
 

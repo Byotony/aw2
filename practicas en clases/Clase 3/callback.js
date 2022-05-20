@@ -1,3 +1,5 @@
+// SE DECLARAN LOS ARREGLOS.
+
 const platos=[
     {
         id:1,
@@ -21,6 +23,9 @@ const platos=[
     },
 
  ]
+
+ //SE DECLARA OTRA ARREGLO
+
  const restaurantes=[
      {
         id:1,
@@ -31,6 +36,10 @@ const platos=[
         nombre:'A leña INC.',
      },
  ]
+
+ // SE REALIZA UN FUNCION ASINCRÓNICA PARA BUSCAR EL PLATO MEDIANTE UNA ID, Y SE REALIZA UNA COMPARATIVA ENTRE EL DATO DE PLATOID CON LA ID
+ // ESTOS MENDIANTE UNA FUNCIÓN SE VERÁ SIN SON IDENTICOS, EN CASO DE NO SER ASÍ, SE CREA UNA CONSTANTE CON EL MENSAJE DE ERROR, EN CASO DE
+ // QUE SI ENCUENTREN EL PLATO, ESTE SERÁ RETORNADO MEDIANTE EL CALLBACK.
 
  function buscarPlatoPorId(id, callback)
  {
@@ -54,6 +63,8 @@ const platos=[
 //      }
 //      return callback(null, restaurante);
 //  }
+
+// SE LLAMA AL MÉTODO PARA BUSCAR EL PLATO POR ID Y SE LE PASA EL RESPECTIVO ID.
 
  buscarPlatoPorId(1, (erra, plato)=>{
     if (erra)

@@ -1,3 +1,5 @@
+// SE DECLARA UN ARREGLO DE COMIDA.
+
 const comida = [
     "trigrillo",
     "bolon mixto",
@@ -8,6 +10,8 @@ const comida = [
         return "Bandera"
     }
 ]
+
+// EN LA POSICION X DEL ARREGLO COMIDA SERÁ AÑADIDO EL DATO PARRILLADA.
 
 comida["x"]="Parillada";
 

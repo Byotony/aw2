@@ -1,4 +1,4 @@
-
+// REQUIRE, TRAEMOS LOS DATOS DE NUESTRO ARCHIVO FUNTIONS PARA ASÍ PODER UTILIZARLOS EN ESTE ARCHIVO.
 
 const funcionesx = require("./functions")
 console.log(funcionesx.iva);

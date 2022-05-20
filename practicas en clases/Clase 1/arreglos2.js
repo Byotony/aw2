@@ -6,6 +6,7 @@
 
 // console.log(arreglo1);
 
+// SE DECLARA UN ARREGLO Y SE LE IMPORTAN LOS DATOS.
 
 const arreglo1 = new Map();
 arreglo1.set("1316751633", "Byonetta");

@@ -3,3 +3,4 @@ const comida = {
     ingrediente:'Agua, confle, Azucar',
     tipo:'Desayuno'
 }
+// ARREGLO CON 3 DATOS.

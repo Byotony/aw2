@@ -14,4 +14,4 @@ const comida = [
         ingredientes:'Arroz, Aceite, Huevo, Sal',
         tipo:'Desayuno'
     },
-]
+] // ARREGLO CON 3 PRODUCTOS DENTRO.

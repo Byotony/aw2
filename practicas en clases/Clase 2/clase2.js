@@ -1,3 +1,6 @@
+//                                                            PRIMER EJEMPLO
+// EN ESTE SOLO SE CREA UNA CALSE CON LOS DATOS Y SE DECLARA UN MÉTODO PARA EXTRASER LOS DATOS DESEADOS DEL CONSTRUCTOR
+
 // class persona{
 //     constructor(nombre, apellido){
 //         this.nombre= nombre;
@@ -13,6 +16,7 @@
 // console.log(persona.getNombreCompleto());
 
 //                                                           SEGUNDA OPERACION
+// EN ESTE SOLO SE CREA UNA CALSE CON LOS DATOS Y SE REALIZA UNA FUNCIÓN TIPO FLECHA PARA RETORNAR LOS NOMBRES
 
 // class Prueba{
 //     constructor(nombre, apellido){
@@ -38,6 +42,8 @@
 
 
 //                                                          TERCER EJEMPLO
+
+// EN ESTE SOLO SE CREA UNA CALSE CON LOS DATOS Y SE REALIZA UNA FUNCIÓN TIPO FLECHA PARA RETORNAR LOS NOMBRES PARA IMPRIMIR MENDIANTE CONSOLA
 
     class Prueba{
         constructor(nombre, apellido){

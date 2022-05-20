@@ -1,4 +1,4 @@
-const comida = [
+const comida = [ // SE CREAN UN ARREGLO CON LA INFORMACIÓN.
     {
     nombre:'AguaConConfle',
     ingrediente:'Agua, confle, Azucar',
@@ -16,7 +16,7 @@ const comida = [
     },
 ]
 
-let y = (comida) =>{
+let y = (comida) =>{ // MENDIANTE UNA FUNCION TIPO FLECHA  SE MANDARÁ UN CICLO FOR EL CUAL PASARÁ TODOS LOS DATOS A MAYÚSCULAS.
     for (let b = 0; b < comida.length; b++) {
         comida[b].nombre = comida[b].nombre.toUpperCase();
         comida[b].ingrediente = comida[b].ingrediente.toUpperCase();
@@ -24,7 +24,7 @@ let y = (comida) =>{
     }
     return comida;
 }
-// console.log(y(comida));
+// console.log(y(comida)); // AQUÍ SOLO SE IMPRIMEN LOS DATOS.
 let o = y(comida);
     console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
     console.log('~                     MENÚ                    ~');

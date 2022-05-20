@@ -1,4 +1,4 @@
-
+// SE DECLARA UNA FUNCION LA CUAL LE PASAREMOS COMO PARÁMETROS 2 DATOS Y MEDIANTE UN SWTICH SE APLIQUE LA OPERACION MATEMÁTICA DESEADA
 
 function operacion(n1,n2,operador) {
     
@@ -21,6 +21,8 @@ function operacion(n1,n2,operador) {
 
 
 }
+
+// UNA FUNCIÓN LA CUAL SOLO OBTENDRA EL DATO NOMBRE Y SALUDARÁ CUANDO SEA LLAMADA
 
 function saludar(nombre) {
     

@@ -14,7 +14,7 @@ const comida = [
         ingredientes:'Arroz, Aceite, Huevo, Sal',
         tipo:'Desayuno'
     },
-]
+] // SOLO SE CREAN UNOS ARREGLOS.
 
 // //Bucle 1
 // for (let b = 0; b < comida.length; b++) {
@@ -35,7 +35,7 @@ const comida = [
 comida.forEach(comida2 => {
     console.log(comida2);
 });
-
+ // SE IMPRIMEN LOS ARREGLOS, PASANDO LA CONSTANTE DONDE ESTÁ GUARDADO.
 
 // // Bucle 4
 // let b = 0
