@@ -1,21 +1,20 @@
-const { response} = require('express')
-const { body } = require('express-validator')
-
+const {response} = require('express')
 const {Producto} = require ('../models')
 
 const   obtenerProductos = async (req, res = response) =>{
 
-    const {limite=10, desde=0} = req.query
+    const {Limite=10, Desde=0} = req.query
     const query = {estado:true}
     
-    const [total, productos] = await Promise.all([
+    const [total, datos] = await Promise.all([
         Producto.countDocuments(query),
-        Producto.find(query)
+        Producto.find(query),
+
     ])
 
     res.json({
         total,
-        productos
+        datos,
     })
 
 }
@@ -37,7 +36,7 @@ const crearProductos = async (req, res) =>{
     if (productoExistente) {
         res.status(400).json({
             message:
-            `El producto con ese nombre ya existe ${productoExistente.nombre} `
+            `El producto con ese nombre ya existe ${productoExistente.nombre}`
         })
     }
 

@@ -13,12 +13,13 @@ class Server {
         }
         this.conectarDB();
         this.middlewares();
-        this.routers.use('/v1/SextoA', this.app);
-        this._express = express().use(this.router)
+        this.routers();
+        this.router.use('/v1/SextoA', this.app);
+        this._express = express().use(this.router);
         
     }
     async conectarDB(){
-        dbConnection
+        await dbConnection();
     };
     middlewares(){
         this.app.use(cors());
@@ -33,6 +34,9 @@ class Server {
         })
     };
 }
+
+module.exports = Server;
+
 
 
 
