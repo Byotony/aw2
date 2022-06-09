@@ -1,20 +1,37 @@
-import express from 'express'
+import {config} from 'dotenv'
+config()
 
-const app = express();
-const PORT = 3000;
+import {Server} from './server'
 
-app.get('/',(req, res) =>{
+const server = new Server();
+
+server.listen();
+
+
+
+
+
+
+
+
+
+
+// import express, {Request, Response} from 'express'
+
+// const app = express();
+// const PORT = 3000;
+
+// app.get('/',(req: Request,res: Response ) =>{
     
-res.json({
-    msg:'ok'
-})
+//     res.json({
+//         msg:'ok'
+//     })
+// })
 
-})
 
-
-app.listen(PORT, ()=>{
-    console.log('Prueba funcionando');
+// app.listen(PORT, ()=>{
+//     console.log('Prueba funcionando');
     
-})
+// })
 
-console.log("ok");
+// console.log("ok");
