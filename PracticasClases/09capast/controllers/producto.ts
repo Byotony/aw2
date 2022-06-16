@@ -37,15 +37,30 @@ const crearProductos = async (req: Request, res: Response)=>{
         return res.status(400).json({
         message: 'El producto ya existe'
         });
+    }
+    const producto = new Product(body);
+    const productoNuevo = await producto.save();
+    return res.status(201).json(productoNuevo);
+}
+    
+    const actualizarProducto = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { estado, ...body } = req.body as IProducto;
+    const productoActualizado = await Product.findByIdAndUpdate(id, body, { new: true });
+    res.json(productoActualizado);
 }
 
-const producto = new Product(body);
-const productoNuevo = await producto.save();
-return res.status(201).json(productoNuevo);
+const eliminarProducto = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const productoEliminado: IProducto | null = await Product.findByIdAndUpdate(id, { Estado: false }, { new: true })
+    res.json(productoEliminado);
 }
+
 
 export {
     obtenerProductos,
     obtenerProducto,
     crearProductos,
+    actualizarProducto,
+    eliminarProducto
 }
