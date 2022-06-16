@@ -31,6 +31,11 @@ class Server{
     }
     private routes(){
         this.app.use(this.paths.productos, productos);
+        this.app.use((req, res, next) => {
+            res.status(400).send({
+                message: "La ruta no existe"
+            })
+        })
     }
     listen(){
         this._express.listen(this.port, () => {

@@ -15,6 +15,11 @@ class Server { // SE GENERA UNA CLASE CON LAS RUTAS.
         this.middlewares();
         this.routers();
         this.router.use('/v1/SextoA', this.app);
+        this.app.use((req, res, next) => {
+            res.status(400).send({
+                message: "La ruta no existe"
+            })
+        })
         this._express = express().use(this.router);
         
     }

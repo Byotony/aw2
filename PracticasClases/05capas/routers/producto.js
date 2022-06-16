@@ -23,7 +23,7 @@ const router = Router ();
 
 router.get('/',obtenerProductos);//Obtener Productos
 router.get('/:id', [check('id', 'El id no es valido').isMongoId],obtenerProducto);//Obtener Producto
-router.post('/', [check('Nombre', 'El nombre es obligatorio').not().isEmpty(), validarCampos],crearProductos);//CrearProducto
+router.post('/', [check('Nombre', 'El nombre es obligatorio').not().isEmpty()], validarCampos,crearProductos);//CrearProducto
 router.put('/:id', [check('id', 'El id no es valido').isMongoId],actualizarProductos);//ActualizarProducto
 router.delete('/:id', [check('id', 'El id no es valido').isMongoId],borrarProductos);//BorrarProducto
 
