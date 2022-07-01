@@ -24,7 +24,7 @@
 * tsc
 
 > Adicción del nginx
-- PASO 3) Se añade el siguiente archivo `nginx.conf` la cual servirá para unficar las rutas
+- PASO 3) Se añade el siguiente archivo `nginx.conf` la cual servirá para unificar las rutas
 
 > Ejecutamos el programa con Docker.
 - PASO 4) Se carga el y se runnea con el docker 
