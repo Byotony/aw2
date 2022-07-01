@@ -1,0 +1,20 @@
+version: '3'
+services:
+  users:
+    build: ./user_servicio
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_CNN=mongodb://mongo:27017/UserV2
+  mongo:
+    image: mongo
+    command: mongod --quiet --logpath /dev/null
+    
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - users
