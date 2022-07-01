@@ -27,7 +27,7 @@
 - PASO 3) Se añade el siguiente archivo `nginx.conf` la cual servirá para unficar las rutas
 
 > Ejecutamos el programa con Docker.
-- PASO 4) Se carga el y se runnea con el docker 
+- PASO 4) Se carga y se runnea el programa con el docker 
 
 > Construimos el docker
 * docker-compose build
