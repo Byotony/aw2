@@ -20,7 +20,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUsersOwnerParkings = exports.registerOwnerParking = exports.authUser = void 0;
+exports.EliminarOwnerParking = exports.OwnerParkingID = exports.editarOwnerParking = exports.getUsersOwnerParkings = exports.registerOwnerParking = exports.authUser = void 0;
 const models_1 = require("../models");
 const authUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { ci, password } = req.body;
@@ -104,3 +104,57 @@ const getUsersOwnerParkings = (req, res) => __awaiter(void 0, void 0, void 0, fu
     });
 });
 exports.getUsersOwnerParkings = getUsersOwnerParkings;
+const editarOwnerParking = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const id = req.params['id'];
+        const data = req.body;
+        yield models_1.User.findByIdAndUpdate(id, data, (err, act_user) => {
+            if (!err) {
+                res.status(200).json({
+                    datos: act_user,
+                    message: 'Usuario actualizado correctamente.'
+                });
+            }
+            else {
+                res.status(400).json({
+                    message: 'Error al actualizar.',
+                });
+            }
+        }).clone().catch(function (err) { console.log(err); });
+    }
+    catch (error) {
+        console.log(error);
+        res.status(201).json("Error en el sistema, F.");
+    }
+});
+exports.editarOwnerParking = editarOwnerParking;
+const OwnerParkingID = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const id = req.params['id'];
+        yield models_1.User.findById(id, (err, user_data) => {
+            if (user_data) {
+                res.status(200).send({ user: user_data });
+            }
+            else {
+                res.status(400).send({ message: 'No existe el usuario' });
+            }
+        }).clone().catch(function (err) { console.log(err); });
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).send('Hay un problema');
+    }
+});
+exports.OwnerParkingID = OwnerParkingID;
+const EliminarOwnerParking = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const id = req.params['id'];
+        const UsuarioEliminado = yield models_1.User.findByIdAndDelete(id, { new: true });
+        res.status(200).send({ message: 'Usuario eliminado con éxito', data: UsuarioEliminado });
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).send('Hay un problema');
+    }
+});
+exports.EliminarOwnerParking = EliminarOwnerParking;

@@ -90,8 +90,81 @@ const getUsersOwnerParkings = async (req: Request, res: Response) => {
     });
 }
 
+const editarOwnerParking = async (req: Request, res: Response) => {
+    try {
+        const id = req.params['id'];
+        const data = req.body;
+
+        await User.findByIdAndUpdate(id, data, (err:Error, act_user: any)=>{
+            if(!err){
+                res.status(200).json({
+                    datos:
+                        act_user,
+                    message:
+                        'Usuario actualizado correctamente.'
+                })
+            }else{
+                res.status(400).json({
+                    message:
+                        'Error al actualizar.',
+                });
+            }
+        }).clone().catch(function(err){ console.log(err)})
+
+    }catch (error) {
+        console.log(error);
+        res.status(201).json("Error en el sistema, F.");
+    }
+}
+
+const  OwnerParkingID = async (req : Request, res : Response) => {
+
+    try {
+
+        const id = req.params['id']
+
+        await User.findById(id, (err : Error, user_data : any) => {
+
+            if (user_data) {
+
+                res.status(200).send({user: user_data})
+            } else {
+
+                res.status(400).send({ message: 'No existe el usuario' })
+
+            }
+
+        }).clone().catch(function(err){ console.log(err)})
+
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hay un problema')
+    }
+
+}
+
+const EliminarOwnerParking = async (req : Request, res : Response) =>  {
+
+    try {
+
+        const id = req.params['id'];
+        const UsuarioEliminado = await User.findByIdAndDelete(id, { new: true });
+        res.status(200).send({ message: 'Usuario eliminado con éxito', data: UsuarioEliminado })
+
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hay un problema')
+    }
+
+}
+
 export {
     authUser,
     registerOwnerParking,
     getUsersOwnerParkings,
+    editarOwnerParking,
+    OwnerParkingID,
+    EliminarOwnerParking
 }

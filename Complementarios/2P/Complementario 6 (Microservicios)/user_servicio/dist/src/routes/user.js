@@ -7,6 +7,7 @@ exports.router = void 0;
 const express_1 = require("express");
 const express_validator_1 = require("express-validator");
 const controllers_1 = require("../controllers");
+const user_1 = require("../controllers/user");
 const { authUser, registerOwnerParking, getUsersOwnerParkings, } = controllers_1.Usuario;
 //ValidarCampos debe estar con el nombre que lo especificamos en el middlewars del index
 const middlewares_1 = __importDefault(require("../middlewares"));
@@ -21,3 +22,9 @@ router.post('/login', (0, express_validator_1.check)('/login', 'Datos incorrecto
 router.post('/OwnerParkings', (0, express_validator_1.check)('/OwnerParkings', 'Error en el check'), validarCampos, registerOwnerParking);
 // http://localhost:3000/v1/g6/api/users/OwnerParkings
 router.get('/', (0, express_validator_1.check)('/OwnerParkings', 'Error en el check'), getUsersOwnerParkings);
+// http://localhost:3000/v1/g6/api/users/OwnerParkings
+router.put('/OwnerParkings/:id', (0, express_validator_1.check)('/OwnerParkings', 'Error en el check'), user_1.editarOwnerParking);
+// POR ID
+router.get('/:id', user_1.OwnerParkingID);
+// DELETES
+router.delete('/:id', user_1.EliminarOwnerParking);
