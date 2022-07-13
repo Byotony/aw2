@@ -22,10 +22,10 @@ const router = Router ();
 // SE LE DA LOS INDICACIONES A LOS PROCESOS CREADOS.
 
 router.get('/',obtenerProductos);//Obtener Productos
-router.get('/:id', [check('id', 'El id no es valido').isMongoId],obtenerProducto);//Obtener Producto
-router.post('/', [check('Nombre', 'El nombre es obligatorio').not().isEmpty()], validarCampos,crearProductos);//CrearProducto
-router.put('/:id', [check('id', 'El id no es valido').isMongoId],actualizarProductos);//ActualizarProducto
-router.delete('/:id', [check('id', 'El id no es valido').isMongoId],borrarProductos);//BorrarProducto
+router.get('/:id',obtenerProducto);//Obtener Producto
+router.post('/', validarCampos,crearProductos);//CrearProducto
+router.put('/:id', actualizarProductos);//ActualizarProducto
+router.delete('/:id', borrarProductos);//BorrarProducto
 
 // router.get('/'
 // , obtenerProductos);

@@ -30,3 +30,5 @@ router.post('/producto/operar', (req,res,next)=>{
         })
     }
 })
+
+module.exports = router;

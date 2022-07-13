@@ -20,7 +20,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.crearProductos = exports.obtenerProducto = exports.obtenerProductos = void 0;
+exports.eliminarProducto = exports.actualizarProducto = exports.crearProductos = exports.obtenerProducto = exports.obtenerProductos = void 0;
 const models_1 = require("../models");
 const obtenerProductos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { Limite = '10', Desde = '0' } = req.query;
@@ -56,3 +56,16 @@ const crearProductos = (req, res) => __awaiter(void 0, void 0, void 0, function*
     return res.status(201).json(productoNuevo);
 });
 exports.crearProductos = crearProductos;
+const actualizarProducto = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const _b = req.body, { estado } = _b, body = __rest(_b, ["estado"]);
+    const productoActualizado = yield models_1.Product.findByIdAndUpdate(id, body, { new: true });
+    res.json(productoActualizado);
+});
+exports.actualizarProducto = actualizarProducto;
+const eliminarProducto = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const productoEliminado = yield models_1.Product.findByIdAndUpdate(id, { Estado: false }, { new: true });
+    res.json(productoEliminado);
+});
+exports.eliminarProducto = eliminarProducto;
