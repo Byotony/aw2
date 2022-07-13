@@ -1,0 +1,27 @@
+{{!-- <h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+ --}}
+
+<div class="container">
+    <div class="row">
+        <a href="/producto/nuevo" class="btn btn-primary">Nuevo</a>
+        <table class="table table-striped">
+            <thead>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Costo</th>
+            </thead>
+            
+            {{#each productos}}
+
+            <tr>
+                <td>{{this.Nombre}}</td>
+                <td>{{this.Precio}}</td>
+                <td>{{this.Costo}}</td>
+                <td> <a href="/producto/modificar/{{this._id}}">Modificar</a></td>
+                <td> <a href="/producto/eliminar/{{this._id}}">Eliminar</a></td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+</div>
