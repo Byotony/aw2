@@ -29,8 +29,14 @@ const   obtenerProductos = async (req, res = response) =>{
 const obtenerProducto = async (req, res = response) =>{
 
     const {id} = req.params
-    const producto = await Producto.findByid(id)
+    const producto = await Producto.findById(id)
+    if (!producto) {
+        return res.status(404).json({
+            message: 'El producto no existe'
+        })
+    }
     res.json(producto);
+    
 
 }
 
@@ -43,14 +49,14 @@ const crearProductos = async (req, res) =>{
     const productoExistente = await Producto.findOne({ nombre:body.nombre})
 
     if (productoExistente) {
-        res.status(400).json({
+        return res.status(400).json({
             message:
             `El producto con ese nombre ya existe ${productoExistente.nombre}`
         })
     }
 
     const producto = new Producto(body);
-    await producto.save ();
+    const productoNuevo = await producto.save();
     res.status(201).json(productoNuevo);    
 
 }
@@ -72,7 +78,7 @@ const actualizarProductos = async (req, res) =>{
 const borrarProductos = async (req, res) =>{
 
     const {id} = await req.params
-    const productoBorrado = await Producto.findByIdAndUpdate({estado:false}, {new:true});
+    const productoBorrado = await Producto.findByIdAndUpdate(id,{estado:false}, {new:true});
     res.json(productoBorrado);
 
 }

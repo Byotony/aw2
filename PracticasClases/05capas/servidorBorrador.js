@@ -32,6 +32,7 @@ class Server { // SE GENERA UNA CLASE CON LAS RUTAS.
     };
     routers(){
         this.app.use(this.paths.productos, require ('./routers/producto'))
+        // this.app.use(this.paths.clientes, require ('./routers/cliente'))
     };
     listen(){
         this._express.listen(this.port, ()=>{
